@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Militares</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <i class="fas fa-medal"></i>
+                <h1>Sistema de Cadastro Militar</h1>
+                <p>Registro de Pessoal Militar</p>
+            </div>
+        </header>
+
+        <main>
+            <form id="militaryForm" class="registration-form">
+                <div class="form-section">
+                    <h2><i class="fas fa-user-shield"></i> Dados Pessoais</h2>
+                    
+                    <div class="form-group">
+                        <label for="rank">Posto/Graduação *</label>
+                        <select id="rank" name="rank" required>
+                            <option value="">Selecione o posto/graduação</option>
+                            <option value="SD">Soldado (SD)</option>
+                            <option value="CB">Cabo (CB)</option>
+                            <option value="SGT">Sargento (SGT)</option>
+                            <option value="SUB TEN">Subtenente (SUB TEN)</option>
+                            <option value="TEN">Tenente (TEN)</option>
+                            <option value="CAP">Capitão (CAP)</option>
+                            <option value="MAJ">Major (MAJ)</option>
+                            <option value="TEN CEL">Tenente Coronel (TEN CEL)</option>
+                            <option value="CEL">Coronel (CEL)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required placeholder="Digite o nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="battalion">Batalhão *</label>
+                        <input type="text" id="battalion" name="battalion" required placeholder="Ex: 1º Batalhão de Infantaria">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-map-marker-alt"></i> Localização</h2>
+                    
+                    <div class="form-group">
+                        <label for="address">Endereço Residencial *</label>
+                        <textarea id="address" name="address" required placeholder="Digite o endereço completo"></textarea>
+                    </div>
+
+                    <div class="location-section">
+                        <div class="location-header">
+                            <h3>Coordenadas Geográficas</h3>
+                            <button type="button" id="getLocationBtn" class="btn-location">
+                                <i class="fas fa-crosshairs"></i> Obter Localização Atual
+                            </button>
+                        </div>
+                        
+                        <div class="coordinates-grid">
+                            <div class="form-group">
+                                <label for="latitude">Latitude *</label>
+                                <input type="number" id="latitude" name="latitude" step="any" required placeholder="Ex: -23.5505">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="longitude">Longitude *</label>
+                                <input type="number" id="longitude" name="longitude" step="any" required placeholder="Ex: -46.6333">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn-submit">
+                        <i class="fas fa-save"></i> Cadastrar Militar
+                    </button>
+                    <button type="reset" class="btn-reset">
+                        <i class="fas fa-undo"></i> Limpar Formulário
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-content">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Cadastrando militar...</p>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Cadastro Realizado com Sucesso!</h3>
+                <p>Os dados do militar foram salvos na planilha.</p>
+                <button id="closeSuccessModal" class="btn-primary">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Erro no Cadastro</h3>
+                <p id="errorMessage">Ocorreu um erro ao salvar os dados.</p>
+                <button id="closeErrorModal" class="btn-primary">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

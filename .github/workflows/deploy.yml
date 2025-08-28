@@ -34,7 +34,7 @@ jobs:
           cat > _site/env-config.js << 'EOF'
           // Environment configuration injected during build
           window.CONFIG = {
-            'GOOGLE_SHEETS_API_KEY': '${{ secrets.GOOGLE_SHEETS_API_KEY }}',
+            'GOOGLE_WEB_APP_URL': '${{ secrets.GOOGLE_WEB_APP_URL }}',
             'GOOGLE_SHEETS_SPREADSHEET_ID': '${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}',
             'GOOGLE_SHEETS_RANGE': '${{ secrets.GOOGLE_SHEETS_RANGE }}'
           };
